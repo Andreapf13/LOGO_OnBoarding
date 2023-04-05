@@ -19,8 +19,8 @@
   <form on:submit|preventDefault={handleSubmit}>
     <label>
       Precio:
-      <input type="number" step="any" bind:value={price} />
+      <input type="number" bind:value={price} />
     </label>
-  
+
     <button type="submit">Añadir ticket</button>
   </form>

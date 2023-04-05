@@ -1,6 +1,10 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
+  
+    const dispatch = createEventDispatcher();
+  
     export let tickets = [];
-    let total = 0;
+    export let total = 0;
   
     function handleDelete(id) {
       tickets = tickets.filter(ticket => ticket.id !== id);
@@ -12,11 +16,10 @@
         if (ticket.id === id) {
           ticket.price = parseFloat(price);
         }
-  
         return ticket;
       });
-  
       calculateTotal();
+      dispatch('priceChange', { tickets, total });
     }
   
     function calculateTotal() {
@@ -24,32 +27,18 @@
     }
   </script>
   
-  <table>
-    <thead>
-      <tr>
-        <th>Número</th>
-        <th>Precio</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
+  
       {#each tickets as ticket}
-        <tr>
-          <td>{ticket.id}</td>
-          <td>
-            <input type="number" step="any" value={ticket.price} on:change={() => handlePriceChange(ticket.id, event.target.value)} />
-          </td>
-          <td>
+    
+          <p>ID TICKET: {ticket.id}</p>
+            <input type="number"  value={ticket.price} on:change={() => handlePriceChange(ticket.id, event.target.value)} />
             <button on:click={() => handleDelete(ticket.id)}>Borrar</button>
-          </td>
-        </tr>
+       
       {/each}
-    </tbody>
-    <tfoot>
-      <tr>
-        <th>Total:</th>
-        <th>{total.toFixed(2)} €</th>
-        <th></th>
-      </tr>
-    </tfoot>
-  </table>
+ 
+        <h3>Total:</h3>
+        <h3>{total.toFixed(2)} €</h3>
+
+      
+
+  
