@@ -18,7 +18,7 @@
 
 <h1>FRUTERÍA ANDREA</h1>
 <TicketForm on:addTicket={handleAddTicket} />
-<TicketTable {tickets} />
+<TicketTable bind:tickets={tickets} />
 
 <h3>Total:</h3>
 <h3>{total.toFixed(2)} €</h3>
