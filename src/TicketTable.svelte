@@ -1,8 +1,4 @@
 <script>
-    import { createEventDispatcher } from 'svelte';
-    
-    const dispatch = createEventDispatcher();
-    
     export let tickets = [];
     
     function handleDelete(id) {
@@ -16,7 +12,6 @@
             }
             return ticket;
         });
-        dispatch('priceChange', { tickets });
     }
 </script>
 
