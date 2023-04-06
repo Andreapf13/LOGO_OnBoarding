@@ -7,7 +7,6 @@
     
     function handleAddTicket(event) {
         tickets = [...tickets, event.detail];
-        calculateTotal();
         
         if (tickets.length === 5) {
             alert('¡Ya hay 5 tickets en la lista!');
@@ -21,12 +20,9 @@
             }
             return ticket;
         });
-        calculateTotal();
     }
     
-    function calculateTotal() {
-        total = tickets.reduce((acc, ticket) => acc + ticket.price, 0);
-    }
+    $: total = tickets.reduce((acc, ticket) => acc + ticket.price, 0);
 </script>
 
 <h1>FRUTERÍA ANDREA</h1>
