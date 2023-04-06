@@ -7,11 +7,12 @@
     
     function handleAddTicket(event) {
         tickets = [...tickets, event.detail];
-        
-        if (tickets.length === 5) {
-            alert('¡Ya hay 5 tickets en la lista!');
-        }
     }
+    
+    $: if (tickets.length === 5) {
+        alert('¡Ya hay 5 tickets en la lista!');
+    }
+
     function handlePriceChange(event) {
         const { id, price } = event.detail;
         tickets = tickets.map(ticket => {
