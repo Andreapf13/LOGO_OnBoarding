@@ -8,9 +8,9 @@
     function handleAddTicket(event) {
         tickets = [...tickets, event.detail];
     }
-    
-    $: if (tickets.length === 5) {
-        alert('¡Ya hay 5 tickets en la lista!');
+
+    $: if (tickets.length && (tickets.length % 5) === 0) {
+        alert(`¡Revisar caja! 5 tickets añadidos. El total debería ser ${total.toFixed(2)} €`);
     }
 
     function handlePriceChange(event) {
