@@ -7,8 +7,7 @@
     
     function handleSubmit() {
         const ticket = {
-            price: parseFloat(price),
-            id: Math.floor(Math.random() * 1000)
+            price: parseFloat(price)
         };
         
         dispatch('addTicket', ticket);

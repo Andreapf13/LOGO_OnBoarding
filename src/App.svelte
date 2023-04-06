@@ -5,8 +5,13 @@
     let tickets = [];
     let total = 0;
     
+    let idCounter = 0;
+
     function handleAddTicket(event) {
-        tickets = [...tickets, event.detail];
+        tickets = [...tickets, {
+            price: event.detail.price,
+            id: idCounter++
+        }];
     }
 
     $: if (tickets.length && (tickets.length % 5) === 0) {
