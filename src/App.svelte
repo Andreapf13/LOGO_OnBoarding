@@ -26,12 +26,16 @@
   }
   
 
-Finalmente, llamamos a calculateTotal() para recalcular el valor total de los tickets después de que se haya actualizado el precio de un ticket.*/
+
   function calculateTotal() {
     total = tickets.reduce((acc, ticket) => acc + ticket.price, 0);
   }
 </script>
 
 <h1>FRUTERÍA ANDREA</h1>
+
 <TicketForm on:addTicket={handleAddTicket} />
 <TicketTable on:priceChange={handlePriceChange} {tickets} {total} />
+
+<h3>Total:</h3>
+<h3>{total.toFixed(2)} €</h3>

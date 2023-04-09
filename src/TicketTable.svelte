@@ -4,7 +4,7 @@
     const dispatch = createEventDispatcher();
 
     export let tickets = [];
-    export let total = 0;
+
 
     function handleDelete(id) {
         tickets = tickets.filter((ticket) => ticket.id !== id);
@@ -22,9 +22,7 @@
         dispatch("priceChange", { tickets, total });
     }
 
-    function calculateTotal() {
-        total = tickets.reduce((acc, ticket) => acc + ticket.price, 0);
-    }
+   
 </script>
 
 {#each tickets as ticket}
@@ -36,6 +34,3 @@
     />
     <button on:click={() => handleDelete(ticket.id)}>Borrar</button>
 {/each}
-
-<h3>Total:</h3>
-<h3>{total.toFixed(2)} €</h3>
