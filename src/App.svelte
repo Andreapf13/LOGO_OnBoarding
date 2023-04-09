@@ -4,16 +4,13 @@
 
   let tickets = [];
   let total = 0;
+  let ticketcount = 0;
 
   function handleAddTicket(event) {
     tickets = [...tickets, event.detail];
-    calculateTotal();
-
-
-    if (tickets.length === 5) {
-      alert("¡Ya hay 5 tickets en la lista!");
-    }
+    ticketcount = tickets.lenght
   }
+  
   function handlePriceChange(event) {
     const { id, price } = event.detail;
     tickets = tickets.map((ticket) => {
@@ -22,14 +19,12 @@
       }
       return ticket;
     });
-    calculateTotal();
   }
-  
 
-
-  function calculateTotal() {
-    total = tickets.reduce((acc, ticket) => acc + ticket.price, 0);
-  }
+  $: total = tickets.reduce((acc, ticket) => acc + ticket.price, 0);
+  $: if (ticketcount === 5) {
+        alert("¡Ya hay 5 tickets en la lista!");
+     }
 </script>
 
 <h1>FRUTERÍA ANDREA</h1>
