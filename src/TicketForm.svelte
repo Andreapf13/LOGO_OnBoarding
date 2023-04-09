@@ -17,8 +17,7 @@
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>
-    <label
-        >© Precio:
+    <label> Precio:
         <input type="number" bind:value={price} />
     </label>
 
