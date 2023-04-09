@@ -11,7 +11,7 @@
     const newTicket = {
       id: nextId,
       item: "",
-      price: parseFloat(event.detail.price)
+      price: parseFloat(event.detail.price),
     };
     nextId++;
     tickets = [...tickets, newTicket];
@@ -29,7 +29,7 @@
 <h1>FRUTERÍA LOLA</h1>
 
 <TicketForm on:addTicket={addTicket} />
-<TicketTable bind:tickets={tickets} />
+<TicketTable bind:tickets />
 
 <h3>Total:</h3>
 <h3>{total.toFixed(2)}</h3>
