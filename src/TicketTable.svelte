@@ -1,10 +1,6 @@
 <script>
-    import { createEventDispatcher } from "svelte";
-
-    const dispatch = createEventDispatcher();
 
     export let tickets = [];
-
 
     function handleDelete(id) {
         tickets = tickets.filter((ticket) => ticket.id !== id);
@@ -19,7 +15,7 @@
             return ticket;
         });
         calculateTotal();
-        dispatch("priceChange", { tickets, total });
+      
     }
 
    
